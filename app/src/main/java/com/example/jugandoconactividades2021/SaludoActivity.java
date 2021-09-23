@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class SaludoActivity extends AppCompatActivity {
@@ -28,6 +29,10 @@ TextView saludo;
         volver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                EditText numero = findViewById(R.id.editTextNumero);
+                Intent intento  = new Intent();
+                intento.putExtra(MainActivity.NUMERO, numero.getText().toString());
+                setResult(RESULT_OK, intento);
                 finish();
             }
         });
